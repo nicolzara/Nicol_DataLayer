@@ -29,4 +29,13 @@ namespace Model
             set { this.value = value; }
         }
     }
+
+    public class ForeinExchangeList : List<ForeinExchange>
+    {
+        public ForeinExchangeList() { } // default c'tor with empty list
+
+        public ForeinExchangeList(IEnumerable<ForeinExchange> list) : base(list) { } // parse generic list to forein exchange list
+
+        public ForeinExchangeList(IEnumerable<BaseEntity> list) : base(list.Cast<ForeinExchange>().ToList()) { } // from base class to forein exchange list
+    }
 }
